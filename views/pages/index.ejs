@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Passero+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/styles2.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Page</title>
+</head>
+<body>
+    <!-- Hamburger Navagation -->
+        <div class="menu-wrap">
+            <input type="checkbox" class="toggler">
+            <div class="hamburger"><div></div></div>
+            <div class="menu">
+                <div>
+                    <div>
+                        <ul>
+                            <li><a href="/">Home</a></li>
+                            <li><a href="/cosplay">Cosplay</a></li>
+                            <li><a href="/comic">Comics</a></li>
+                            <li><a href="/shows">Film</a></li>
+                            <!-- <li><a href="/games">Game Characters</a></li> -->
+                            <li><a href="/contact">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+<!-- Main Showcase -->
+<div class="showcase">
+    <div class="container showcase-inner">
+        <h1>Black SuperHeroes</h1>
+        <p>Welcome! On this site I will showcasing all beloved and some unknown black superheroes in Comics, and Film. </p>
+        <div class="buttons">
+            <a href="#" class="btn" id="login">Login</a>
+           <a href="#" class="btn" id="register">Register</a>
+        </div>
+    </div>
+</div>
+
+<div class="popup">
+    <div class="popup-content">
+        <i class="far fa-times-circle close"></i>
+        <img src="images/woman_7-512.png" alt="user">
+        <% if(messages.error) {%>
+            <%= messages.error %>
+            <% } %>
+    <form action="/login" method="POST">
+        <label for="email"></label>
+        <input type="text" placeholder="email" name="email">
+        <label for="email"></label>
+        <input type="text" placeholder="password" name="password">
+        <button class="btn">Login</button>
+    </form>
+    </div>    
+</div>
+
+<div class="popup2">
+    <div class="popup-content">
+    <i class="far fa-times-circle close2"></i>
+    <img src="images/woman_7-512.png" alt="user">
+    <form action="/register1" method="post">
+        <label for="name">Name: </label>
+        <input type="text" name="name" placeholder="name">
+        <label for="email">Enter Email:</label>
+        <input type="text" id="email" name="email" placeholder="email">
+        <label for="password">Enter Password:</label>
+        <input type="text" name="password" placeholder="password">
+        <button class="btn">Register</button>
+    </form>
+    </div>
+</div>
+    <script src="/js/login.js"></script>
+</body>
+</html>

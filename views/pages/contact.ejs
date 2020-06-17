@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Passero+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/styles2.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Page</title>
+</head>
+<body>
+    <!-- Hamburger Navagation -->
+    <div class="menu-wrap">
+        <input type="checkbox" class="toggler">
+        <div class="hamburger"><div></div></div>
+        <div class="menu">
+            <div>
+                <div>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/cosplay">Cosplay</a></li>
+                        <li><a href="/comic">Comics</a></li>
+                        <li><a href="/shows">Film</a></li>
+                        <!-- <li><a href="/games">Game Characters</a></li> -->
+                        <li><a href="/contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- Main Showcase -->
+<div class="showcase">
+<div class="container showcase-inner" id="msg">
+    <h1>Contact:</h1>
+    <div class="form_container" >
+        <!-- <form action="/contact" method="POST"> -->
+            <form>
+            <label for="fname"> Name</label>
+            <input type="text" id="fname" name="name" placeholder="Your name..">
+        
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Enter Email">
+        
+            <label for="country">Country</label>
+            <select id="country" name="country">
+              <option value="australia">Australia</option>
+              <option value="canada">Canada</option>
+              <option value="usa">USA</option>
+            </select>
+        
+            <label for="subject">Feedback/Suggestions:</label>
+            <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+        
+            <input type="submit" value="Submit" id="contact_sub">
+          </form>
+    </div>
+
+
+    <p ></p>
+</div>
+</div>
+<script src="/js/contact_script.js"></script>
+</body>
+</html>

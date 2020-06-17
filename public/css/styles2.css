@@ -1,0 +1,341 @@
+:root{ 
+    --primary-color: rgba(13, 110, 139, 0.65);
+    --overlay-color: rgba(24, 39, 51, 0.85);
+    --menu-speed: 0.75s;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'passero one', sans-serif;
+    line-height: 1.4;
+}
+.container {
+    max-width: 960px;
+    margin: auto;
+    overflow: hidden;
+    padding: 0 3rem;
+}
+.showcase {
+    background-color: var(--primary-color);
+    color:#fff;
+    height:100vh;
+    position: relative;
+}
+.showcase:before {
+    content: '';
+    background: url('/images/black_super.jpg') no-repeat center/cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+.showcase .showcase-inner{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100%;
+}
+.showcase h1 {
+    font-size: 4rem;
+}
+.showcase p {
+    font-size: 1.3rem;
+}
+.btn {
+    display: inline-block;
+    border: none;
+    background-color: var(--primary-color);
+    color:#fff;
+    padding: 0.75rem 1.5rem;
+    margin-top:1rem;
+    text-decoration: none;
+    transition: opacity 1s ease-in;
+}
+
+.btn:hover {
+    opacity: 0.7;
+}
+
+.menu-wrap {
+    position: fixed;
+    top:0;
+    left:0;
+    z-index:1;
+}
+.menu-wrap .toggler{
+    position:absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    opacity: 0;
+}
+.menu-wrap .hamburger {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 60px;
+    height:60px;
+    padding: 1rem;
+    background: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* First hamburger line */
+
+.menu-wrap .hamburger > div{
+    position: relative;
+    width: 100%;
+    height: 2px;
+    background-color:#fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s ease;
+}
+/* Creating top and bottom line */
+.menu-wrap .hamburger > div:before,
+.menu-wrap .hamburger > div:after {
+    content: '';
+    position: absolute;
+    z-index:1;
+    top:-10px;
+    width:100%;
+    height: 2px;
+    background:inherit;
+}
+/* move lines in place */
+
+.menu-wrap .hamburger > div:after {
+    top:10px;
+}
+/* animate hamburger menu */
+.menu-wrap .toggler:checked + .hamburger > div {
+    transform: rotate(135deg);
+}
+/* Animate lines to an X */
+.menu-wrap .toggler:checked + .hamburger > div:before,
+.menu-wrap .toggler:checked + .hamburger > div:after{
+    top:0;
+    transform:rotate(90deg);
+}
+/* rotate on hover when checked */
+.menu-wrap .toggler:checked:hover + .hamburger > div{
+    transform: rotate(225deg);
+}
+
+/* show menu */
+.menu-wrap .toggler:checked ~ .menu {
+    visibility: visible;
+}
+.menu-wrap .toggler:checked ~ .menu > div{
+    transform: scale(1);
+    transition-duration: var(--menu-speed);
+}
+.menu-wrap .toggler:checked ~ .menu > div > div {
+    opacity: 1;
+    transition: opacity 0.4s ease;
+}
+
+/* menu items */
+.menu-wrap .menu {
+    position: fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    visibility: hidden;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.menu-wrap .menu > div {
+    background: var(--overlay-color);
+    border-radius: 50%;
+    width: 200vw;
+    height: 200vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: scale(0);
+    transition: all 0.4s ease;
+}
+
+.menu-wrap .menu > div > div {
+    text-align: center;
+    max-width: 90vw;
+    max-height: 100vh;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+.menu-wrap .menu > div > div > ul > li {
+    list-style: none;
+    color: #fff;
+    font-size: 1.5rem;
+    padding: 1rem;
+} 
+.menu-wrap .menu > div > div > ul > li > a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.4s ease;
+}
+
+/* Shows background changes */
+.film {
+    background: black;
+}
+.overlay {
+    background-color: var(--primary-color);
+    color:#fff;
+    position: relative;
+}
+.film-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.search-submit{
+    display: flex;
+}
+
+/* formating forms starts hidden and then  becomes visable when clicked*/
+
+.open-button {
+    cursor: pointer;
+    position: fixed;
+    bottom: 23px;
+    right:28px;
+    width: 180px;
+}
+/* form display is hidden */
+.form-popup {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    right: 15px;
+    border: 3px solid #f1f1f1;
+    z-index:9;
+}
+.form-container{
+    max-width: 300px;
+    padding:10px;
+    background-color: white;
+}
+/* rearranging the form */
+form {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    height: 500px;
+}
+.form-container input[type=text] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: black;
+    color: white;
+}
+/* buttons inside styling */
+.form-container .form-btn {
+    background-color: black;
+    color: white;
+    padding: 16px 20px;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 10px;
+    opacity: 0.8;
+}
+.form-container .form-btn:hover, .open-button:hover {
+    opacity:1;
+}
+
+/* formating the cards */
+.charDisplay {
+    display: flex;
+    flex-wrap: wrap;
+}
+.displayAll {
+    width: 18rem;
+    padding: 5px;
+    
+}
+
+/* formatting contact page */
+input[type=text], select, textarea, input[type=email] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+  }
+  input[type=submit] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  input[type=submit]:hover {
+    background-color: #45a049;
+  }
+
+  /* login form */
+  .popup, .popup2{
+      background: rgba(0,0,0, 0.6);
+      width:100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+  }
+
+  .popup-content {
+      height: 250px;
+      width: 500px;
+      /* background: #fff; */
+      padding: 20px;
+      border-radius: 5px;
+      position:relative;
+  }
+  input{
+      margin:20px auto;
+      display: flex;
+      width: 50%;
+      padding: 8px;
+      border: 1px solid gray;
+  }
+  img{
+      width: 100px;
+  }
+
+.close, .close2 {
+    position: absolute;
+    top: -15px;
+    right:-15px;
+    background: #fff;
+    height: 20px;
+    width:20px;
+    cursor: pointer;
+}
